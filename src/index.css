@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Pinyon Script';
+  src: url('./assets/asset-brown/fonts/pinyonscript.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Belleza';
+  src: url('./assets/asset-brown/fonts/Belleza-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Great Vibes';
+  src: url('./assets/asset-green/fonts/GreatVibes-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@layer base {
+  body {
+    @apply font-belleza;
+  }
+}
+
+body {
+  font-family: 'Belleza', sans-serif;
+}
+
+@keyframes fadeZoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9); /* sedikit mengecil di awal */
+    filter: blur(4px); /* efek dari dalam, agak kabur dulu */
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+.animate-fadeZoomIn {
+  animation: fadeZoomIn 2.2s ease-out forwards;
+}
+
+
+.clip-path-triangle-up {
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.animate-slideDown {
+  animation: slideDown 1.2s ease-out forwards;
+}
+
+@keyframes flyBird {
+  0% {
+    transform: translate(-10vw, 20vh) scale(0.6) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(50vw, -10vh) scale(1) rotate(-5deg);
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(110vw, -40vh) scale(0.8) rotate(-10deg);
+    opacity: 0;
+  }
+}
+
+.animate-bird-1 {
+  animation: flyBird 12s linear infinite;
+}
+
+.animate-bird-2 {
+  animation: flyBird 16s linear infinite 4s; /* delay 4 detik & lebih lambat */
+}
