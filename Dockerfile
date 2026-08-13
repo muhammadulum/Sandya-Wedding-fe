@@ -13,12 +13,9 @@ RUN npm run build
 
 # --- TAHAP 2: Serve dengan Nginx ---
 FROM nginx:alpine
-
-# Menyalin hasil build dari Tahap 1 ke folder default Nginx
+# Hapus konfigurasi default Nginx dan ganti dengan milik kita
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Menyalin hasil build dari Tahap 1
 COPY --from=builder /app/build /usr/share/nginx/html
-
-# Mengekspos port 80 di dalam container (yang nanti ditangkap Reverse Proxy)
 EXPOSE 80
-
-# Menjalankan Nginx
 CMD ["nginx", "-g", "daemon off;"]
