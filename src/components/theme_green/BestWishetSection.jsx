@@ -6,6 +6,8 @@ import { motion } from "framer-motion";
 import BgGift from "../../assets/asset-green/another/SCYLLA-ASSET-GC-2.jpg";
 import Bgflowerside from "../../assets/asset-green/another/ASSET-GC-KALUNA-14.png";
 
+import axiosClient from "../../api/axiosClient.js";
+
 export default function BestWishetSection() {
   const [name, setName] = useState("");
   const [attending, setAttending] = useState(true); // default true/hadir
@@ -22,9 +24,9 @@ export default function BestWishetSection() {
 
   const fetchRsvp = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/rsvp");
-      const data = await res.json();
-      setRsvpList(data);
+      // Tidak perlu tulis URL lengkap, axiosClient akan otomatis memakai URL dari .env
+      const res = await axiosClient.get("/rsvp");
+      setRsvpList(res.data); // Axios otomatis mengubah response menjadi JSON di dalam res.data
     } catch (err) {
       console.error("Gagal mengambil data RSVP:", err);
     }
@@ -40,12 +42,10 @@ export default function BestWishetSection() {
 
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:5000/api/rsvp", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name, attending, message }),
+      const res = await axiosClient.post("/rsvp", {
+        name,
+        attending,
+        message,
       });
 
       if (!res.ok) throw new Error("Gagal mengirim data");
