@@ -32,30 +32,51 @@ export default function LoveStory() {
 
   const scrollRefs = useRef([]);
 
+  // Fungsi Auto-Scroll Baru
   useEffect(() => {
     const intervals = [];
+    const scrollListeners = []; // Untuk menyimpan event listener agar bisa dibersihkan
 
     scrollRefs.current.forEach((el, index) => {
       if (el) {
         const step = 1;
         const delay = 60;
+        let isPaused = false; // Penanda apakah auto-scroll sedang di-pause
 
+        // 1. Logika untuk Interval Auto-scroll
         const timer = setInterval(() => {
+          if (isPaused) return; // Jika sedang di-pause, jangan lakukan apa-apa
+
+          // Jika scroll sudah mentok ke bawah
           if (el.scrollTop + el.clientHeight >= el.scrollHeight - 1) {
-            setTimeout(() => {
-              if (el) el.scrollTo({ top: 0, behavior: "smooth" });
-            }, 2000);
+            isPaused = true; // Hentikan auto-scroll
           } else {
+            // Terus scroll ke bawah
             el.scrollTop += step;
           }
         }, delay);
 
         intervals.push(timer);
+
+        // 2. Logika untuk Mendeteksi Scroll Manual oleh User
+        const handleScroll = () => {
+          // Jika user menggeser (scroll) manual teks kembali ke paling atas (posisi 0)
+          if (el.scrollTop <= 1) {
+            isPaused = false; // Jalankan auto-scroll kembali
+          }
+        };
+
+        el.addEventListener("scroll", handleScroll);
+        scrollListeners.push({ el, handleScroll });
       }
     });
 
+    // Membersihkan interval dan event listener saat komponen ditutup/unmount
     return () => {
       intervals.forEach((interval) => clearInterval(interval));
+      scrollListeners.forEach(({ el, handleScroll }) => {
+        el.removeEventListener("scroll", handleScroll);
+      });
     };
   }, []);
 
@@ -76,6 +97,7 @@ export default function LoveStory() {
         `}
       </style>
 
+      {/* 1. JUDUL */}
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -86,6 +108,7 @@ export default function LoveStory() {
         Kisah Cinta
       </motion.h2>
 
+      {/* 2. GALLERY FOTO */}
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         whileInView={{ opacity: 1, scale: 1 }}
@@ -103,6 +126,7 @@ export default function LoveStory() {
         ))}
       </motion.div>
 
+      {/* 3. KARTU CERITA (TIMELINE) */}
       <div className="w-full max-w-sm flex flex-col gap-8 z-10">
         {stories.map((story, index) => (
           <motion.div
