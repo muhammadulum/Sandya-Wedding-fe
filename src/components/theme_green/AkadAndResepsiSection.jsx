@@ -51,7 +51,7 @@ export default function AkadSection() {
             </p>
 
             <p className="text-xs sm:text-sm font-serif text-[#785b28] mb-3">
-              10.00 WIB - Selesai
+              09.00 WIB - Selesai
             </p>
 
             <p className="text-xs sm:text-sm font-serif tracking-wider uppercase font-semibold text-[#785b28] mb-1">

@@ -74,7 +74,7 @@ export default function BrideAndGroomSection() {
             Muhammad Mietakhul Ulum
           </p>
           <p className="text-xs text-[#7b553a] font-serif mb-3">
-            Putra dari Bapak Sunardi & Ibu Sholikatun
+            Putra dari Bapak Sunardi & Ibu Sholikhatun
           </p>
 
           <a
