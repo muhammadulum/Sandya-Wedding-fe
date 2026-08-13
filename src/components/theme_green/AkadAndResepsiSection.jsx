@@ -59,8 +59,8 @@ export default function AkadSection() {
             </p>
 
             <p className="text-xs sm:text-sm font-serif italic text-[#785b28] mb-4 leading-relaxed">
-              Jl Rangga Sentap, GG. Poltek 1 (Rumah Sebelah Kanan Ujung Warna
-              Putih), Kel. Sukaharja. Kec. Delta pawan
+              Jl Rangga Sentap, GG. Poltek 1 (Rumah Warna Putih Sebelah Kiri),
+              Kel. Sukaharja. Kec. Delta pawan
             </p>
 
             <a
@@ -92,8 +92,8 @@ export default function AkadSection() {
             </p>
 
             <p className="text-xs sm:text-sm font-serif italic text-[#785b28] mb-4 leading-relaxed">
-              Jl Rangga Sentap, GG. Poltek 1 (Rumah Sebelah Kanan Ujung Warna
-              Putih), Kel. Sukaharja. Kec. Delta pawan
+              Jl Rangga Sentap, GG. Poltek 1 (Rumah Warna Putih Sebelah Kiri),
+              Kel. Sukaharja. Kec. Delta pawan
             </p>
 
             <a

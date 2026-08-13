@@ -29,7 +29,7 @@ export default function GiftSection() {
     title: "Kirim Hadiah ke Alamat",
     name: "Nadya & Ulum",
     address:
-      "Jl Rangga Sentap, GG. Poltek 1 (Rumah Sebelah Kanan Ujung Warna Putih), Kel. Sukaharja.  Kec. Delta pawan, Kabupaten Ketapang, Kalimantan Barat 78813",
+      "Jl Rangga Sentap, GG. Poltek 1 (Rumah Warna Putih Sebelah Kiri), Kel. Sukaharja.  Kec. Delta pawan, Kabupaten Ketapang, Kalimantan Barat 78813",
   };
 
   const copyToClipboard = (text) => {

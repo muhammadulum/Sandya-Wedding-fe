@@ -12,8 +12,8 @@ export default function LocationSection() {
         Detail Location
       </h2>
       <p className="text-[#a27b38] mb-4">
-        Jl Rangga Sentap, GG. Poltek 1 (Rumah Sebelah Kanan Ujung Warna Putih),
-        Kel. Sukaharja. Kec. Delta pawan
+        Jl Rangga Sentap, GG. Poltek 1 (Rumah Warna Putih Sebelah Kiri), Kel.
+        Sukaharja. Kec. Delta pawan
       </p>
 
       <div className="flex justify-center">
