@@ -17,7 +17,7 @@ const getApiBase = () => {
     if (process.env.VITE_API_BASE_URL) return process.env.VITE_API_BASE_URL;
   }
 
-  return "https://api.sandyatech.tech/api";
+  return "https://api.wedding.sandyatech.tech/api";
 };
 
 const API_BASE = getApiBase();

@@ -33,7 +33,7 @@ const getBaseUrl = () => {
   }
 
   // default used by this project
-  return "https://api.sandyatech.tech/api";
+  return "https://api.wedding.sandyatech.tech/api";
 };
 
 const axiosClient = axios.create({
