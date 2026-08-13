@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Copy, MapPin, Gift, ChevronUp } from "lucide-react";
-
-// ASSET IMPORT (SESUAIKAN PATH PROYEKMU)
 import CardAtm from "../../assets/asset-green/cardatm.webp";
 import BgGift from "../../assets/asset-green/another/SCYLLA-ASSET-GC-2.jpg";
 
@@ -10,7 +8,6 @@ import Bgflowerupper from "../../assets/asset-green/another/cardup.png";
 import Bgflowerdown from "../../assets/asset-green/another/carddown.png";
 
 export default function GiftSection() {
-  // State untuk mengontrol tampilan kartu-kartu hadiah
   const [showCards, setShowCards] = useState(false);
 
   const accounts = [
@@ -45,7 +42,6 @@ export default function GiftSection() {
       className="relative min-h-screen w-full flex flex-col items-center justify-center py-12 px-4 bg-cover bg-center overflow-hidden"
       style={{ backgroundImage: `url(${BgGift})` }}
     >
-      {/* KARTU PUTIH UTAMA (CARD KUBAH / ARCH FRAME) */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -53,35 +49,29 @@ export default function GiftSection() {
         viewport={{ once: true }}
         className="relative w-full max-w-sm sm:max-w-md bg-[#fdfcf9]/95 backdrop-blur-sm rounded-t-[35px] rounded-b-[40px] border border-[#c4a97d]/40 shadow-2xl p-6 sm:p-8 text-center flex flex-col items-center my-8 z-10 overflow-hidden"
       >
-        {/* ORNAMEN ATAS (MASUK DI DALAM CARD) */}
         <img
           src={Bgflowerupper}
           alt="Ornamen Atas"
           className="absolute top-[-20px] left-[-10px] w-full h-auto pointer-events-none z-0 object-contain"
         />
 
-        {/* ORNAMEN BAWAH (MASUK DI DALAM CARD) */}
         <img
           src={Bgflowerdown}
           alt="Ornamen Bawah"
           className="absolute bottom-[-40px] left-10 w-full h-auto pointer-events-none z-0 object-contain"
         />
 
-        {/* ISI KONTEN (DIBERI Z-10 AGAR DI ATAS ORNAMEN) */}
         <div className="relative z-10 w-full flex flex-col items-center">
-          {/* 1. JUDUL SEKSI */}
           <h2 className="text-2xl sm:text-3xl font-serif tracking-[0.15em] text-[#a27b38] font-normal uppercase mb-3 mt-4">
             WEDDING GIFT
           </h2>
 
-          {/* 2. KETERANGAN TEKS */}
           <p className="text-xs sm:text-sm font-serif text-[#785b28] leading-relaxed max-w-xs mx-auto mb-6">
             Kehadiran dan doa Anda adalah hadiah terindah bagi kami. Namun,
             apabila berkenan memberikan tanda kasih, silakan gunakan informasi
             di bawah ini.
           </p>
 
-          {/* 3. TOMBOL TAMPILKAN / SEMBUNYIKAN */}
           <button
             onClick={() => setShowCards(!showCards)}
             className="bg-[#9e7632] hover:bg-[#836024] text-white text-xs font-serif tracking-widest px-7 py-3 rounded-full flex items-center gap-2 transition-all duration-300 shadow-md active:scale-95"
@@ -99,7 +89,6 @@ export default function GiftSection() {
             )}
           </button>
 
-          {/* 4. KONTEN KARTU-KARTU (MUNCUL KETIKA SHOWCARDS = TRUE) */}
           <AnimatePresence>
             {showCards && (
               <motion.div
@@ -109,7 +98,6 @@ export default function GiftSection() {
                 transition={{ duration: 0.5, ease: "easeInOut" }}
                 className="w-full space-y-6 mt-8 overflow-hidden text-left"
               >
-                {/* KARTU ATM REKENING */}
                 {accounts.map((acc, index) => (
                   <div
                     key={index}
@@ -121,7 +109,6 @@ export default function GiftSection() {
                     }}
                   >
                     <div className="relative z-10 h-full flex flex-col justify-between p-5">
-                      {/* Header Card: Chip & Logo Bank */}
                       <div className="flex justify-between items-start">
                         <div className="w-9 h-6 bg-yellow-500/80 rounded-sm shadow-inner" />
                         <img
@@ -131,14 +118,12 @@ export default function GiftSection() {
                         />
                       </div>
 
-                      {/* Nomor Rekening */}
                       <div className="text-center my-1">
                         <p className="font-mono text-base sm:text-lg tracking-[0.2em]">
                           {acc.number}
                         </p>
                       </div>
 
-                      {/* Nama Rekening & Tombol Salin */}
                       <div className="flex justify-between items-end">
                         <div>
                           <p className="text-[10px] text-gray-200 uppercase tracking-widest">
@@ -160,7 +145,6 @@ export default function GiftSection() {
                   </div>
                 ))}
 
-                {/* KARTU ALAMAT HADIAH */}
                 <div className="bg-[#f8f5ee] rounded-2xl p-5 border border-[#c4a97d]/40 shadow-sm text-left">
                   <div className="flex items-center gap-2 mb-2 text-[#9e7632]">
                     <MapPin size={18} />

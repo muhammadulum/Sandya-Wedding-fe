@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 export default function AnimatedSection({
   children,
   delay = 0,
-  type = "slideUp", // bisa: slideUp, slideDown, slideLeft, slideRight
+  type = "slideUp",
 }) {
   const ref = useRef();
 
@@ -17,11 +17,11 @@ export default function AnimatedSection({
           if (entry.isIntersecting) {
             el.style.animationDelay = `${delay}s`;
             el.classList.add(`animate-${type}`);
-            observer.unobserve(el); // biar animasi hanya sekali
+            observer.unobserve(el);
           }
         });
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 },
     );
 
     observer.observe(el);

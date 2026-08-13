@@ -56,7 +56,6 @@ export default function HeroSection({ guestName }) {
           />
         </div>
 
-        {/* Burung Kedua (Pengiring) */}
         <div className="absolute bottom-5 -left-20 w-10 sm:w-16 md:w-20 animate-bird-2 opacity-60">
           <Lottie
             animationData={birdAnimation}

@@ -17,19 +17,17 @@ export default function Envelope() {
   useEffect(() => {
     const raw = window.location.search;
 
-    // Format lama: ?to-Nama%20Tamu
     if (raw.startsWith("?to-")) {
-      const name = raw.substring(4); // buang "?to-"
+      const name = raw.substring(4);
       setGuestName(decodeURIComponent(name).trim());
       return;
     }
 
-    // Format baru (jagai kalau nanti pakai ?to=Nama)
     const params = new URLSearchParams(window.location.search);
     const name2 = params.get("to");
     if (name2) setGuestName(decodeURIComponent(name2).trim());
   }, []);
-  // Ambil data info pernikahan
+
   useEffect(() => {
     (async () => {
       try {
@@ -54,12 +52,10 @@ export default function Envelope() {
         })
       : "Sabtu, 22 Agustus 2026";
 
-  // Kalau sudah klik buka undangan → tampilkan halaman InvitationPage
   if (showInvitation) {
     return <InvitationPage guestName={guestName} />;
   }
 
-  // Tampilan awal (Envelope)
   return (
     <div
       className="relative min-h-screen flex items-center justify-center bg-center bg-cover px-4 sm:px-6 py-10"
@@ -71,7 +67,6 @@ export default function Envelope() {
       {/* <div className="absolute inset-0 bg-[#3b2416]/60"></div> */}
 
       <div className="absolute inset-0 pointer-events-none z-0">
-        {/* Burung Pertama */}
         <div className="absolute bottom-10 -left-20 w-16 sm:w-24 md:w-32 animate-bird-1 opacity-80">
           <Lottie
             animationData={birdAnimation}
@@ -81,7 +76,6 @@ export default function Envelope() {
           />
         </div>
 
-        {/* Burung Kedua (Pengiring) */}
         <div className="absolute bottom-5 -left-20 w-10 sm:w-16 md:w-20 animate-bird-2 opacity-60">
           <Lottie
             animationData={birdAnimation}

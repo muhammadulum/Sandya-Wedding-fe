@@ -1,7 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-// IMPORT ASSET SESUAI STRUKTUR PROYEKMU
 import BgAkad from "../../assets/asset-green/another/SCYLLA-ASSET-GC-2.jpg";
 import Bgtext from "../../assets/asset-green/another/ASSET-GC-KALUNA-8-2-e1753774995538.png";
 import Bgflowerupper from "../../assets/asset-green/another/flowerup.png";
@@ -9,16 +8,13 @@ import Bgflowerdown from "../../assets/asset-green/another/B.png";
 
 export default function AkadSection() {
   return (
-    /* LAYER 1: BG AKAD (BACKGROUND UTAMA PALING BELAKANG) */
     <section
       className="relative min-h-screen w-full flex justify-start items-center bg-cover bg-center overflow-hidden py-12"
       style={{
         backgroundImage: `url(${BgAkad})`,
       }}
     >
-      {/* CONTAINER UTAMA (RESPONSIF MOBILE/TABLET) */}
       <div className="relative w-full max-w-md mx-auto min-h-screen flex flex-col justify-center items-start">
-        {/* LAYER 3 (PALING DEPAN): BGFLOWERUPPER (DIUBAH KE z-30 AGAR DI DEPAN BGTEXT) */}
         <div className="absolute top-3 right-0 w-[95%] sm:w-[65%] pointer-events-none z-30">
           <img
             src={Bgflowerupper}
@@ -27,7 +23,6 @@ export default function AkadSection() {
           />
         </div>
 
-        {/* LAYER 2B: BGFLOWERDOWN (BUNGA BAWAH KANAN - TETAP DI BELAKANG BGTEXT DENGAN z-10) */}
         <div className="absolute bottom-1 right-10 w-[85%] sm:w-[65%] pointer-events-none z-30">
           <img
             src={Bgflowerdown}
@@ -36,7 +31,6 @@ export default function AkadSection() {
           />
         </div>
 
-        {/* LAYER 2: BGTEXT DENGAN UKURAN PAS KONTEN (z-20) */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -47,7 +41,6 @@ export default function AkadSection() {
             backgroundImage: `url(${Bgtext})`,
           }}
         >
-          {/* ==================== 1. BAGIAN PEMBERKATAN / AKAD ==================== */}
           <div className="mb-8">
             <h2 className="text-2xl sm:text-3xl font-serif tracking-widest text-[#a27b38] font-normal uppercase mb-3">
               AKAD
@@ -70,7 +63,6 @@ export default function AkadSection() {
               Putih), Kel. Sukaharja. Kec. Delta pawan
             </p>
 
-            {/* Tombol Lihat Lokasi */}
             <a
               href="https://maps.app.goo.gl/njCvrKHSb2LKS5u37"
               target="_blank"
@@ -81,7 +73,6 @@ export default function AkadSection() {
             </a>
           </div>
 
-          {/* ==================== 2. BAGIAN RESEPSI PERNIKAHAN ==================== */}
           <div>
             <h2 className="text-2xl sm:text-3xl font-serif tracking-widest text-[#a27b38] font-normal uppercase leading-snug mb-3">
               RESEPSI <br />
@@ -105,7 +96,6 @@ export default function AkadSection() {
               Putih), Kel. Sukaharja. Kec. Delta pawan
             </p>
 
-            {/* Tombol Lihat Lokasi */}
             <a
               href="https://maps.app.goo.gl/njCvrKHSb2LKS5u37"
               target="_blank"

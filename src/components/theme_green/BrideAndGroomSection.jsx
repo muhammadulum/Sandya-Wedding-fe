@@ -2,7 +2,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import { FaInstagram } from "react-icons/fa";
 
-// SESUAIKAN PATH IMPORT GAMBAR SESUAI STRUKTUR PROYEKMU
 import BgCover from "../../assets/asset-green/another/SCYLLA-ASSET-GC-2.jpg";
 import Groom from "../../assets/asset-green/pengantin/grom.jpeg";
 import Bride from "../../assets/asset-green/pengantin/bridge.jpeg";
@@ -18,38 +17,25 @@ export default function BrideAndGroomSection() {
       className="relative min-h-screen w-full flex flex-col items-center justify-center py-12 px-4 bg-cover bg-center overflow-hidden"
       style={{ backgroundImage: `url(${BgCover})` }}
     >
-      {/* CARD UTAMA DENGAN BENTUK KUBAH (ARCH FRAME) */}
       <div className="relative w-full max-w-md bg-[#fbf9f5]/90 backdrop-blur-sm rounded-t-[180px] rounded-b-[180px] border border-[#c4a97d]/40 shadow-2xl p-6 sm:p-8 text-center flex flex-col items-center overflow-hidden">
-        {/* ========================================================= */}
-        {/* === LAYER ORNAMEN BACKGROUND CARD (DESAIN BINGKAI) ======= */}
-        {/* ========================================================= */}
-
-        {/* 1. Ornamen Atas (bgupcard) */}
         <img
           src={bgupcard}
           alt="Ornamen Atas"
           className="absolute top-0 left-0 w-full h-auto pointer-events-none z-0 object-contain"
         />
 
-        {/* 2. Ornamen Tengah (bgsidecard) */}
         <img
           src={bgsidecard}
           alt="Ornamen Samping/Tengah"
           className="absolute top-1/2 left-0 w-full -translate-y-12 pointer-events-none z-0 object-contain opacity-90"
         />
 
-        {/* 3. Ornamen Bawah (bgdowncard) */}
         <img
           src={bgdowncard}
           alt="Ornamen Bawah"
           className="absolute bottom-0 left-0 w-full h-auto pointer-events-none z-0 object-contain"
         />
 
-        {/* ========================================================= */}
-        {/* === KONTEN UTAMA (Z-INDEX 10 AGAR DI ATAS ORNAMEN) ====== */}
-        {/* ========================================================= */}
-
-        {/* 1. HEADER TEXT */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -66,7 +52,6 @@ export default function BrideAndGroomSection() {
           </p>
         </motion.div>
 
-        {/* 2. BAGIAN PENGANTIN PRIA (GROOM) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -74,7 +59,6 @@ export default function BrideAndGroomSection() {
           viewport={{ once: true }}
           className="flex flex-col items-center w-full z-10 mb-8"
         >
-          {/* Frame Foto Oval Memanjang */}
           <div className="relative w-48 h-72 sm:w-56 sm:h-80 rounded-[120px] overflow-hidden border-2 border-[#8c734b]/60 shadow-md mb-5">
             <img
               src={Groom}
@@ -83,7 +67,6 @@ export default function BrideAndGroomSection() {
             />
           </div>
 
-          {/* Nama & Detail */}
           <h3 className="text-3xl sm:text-4xl font-serif italic text-[#8c734b] mb-1">
             Ulum
           </h3>
@@ -94,7 +77,6 @@ export default function BrideAndGroomSection() {
             Putra dari Bapak Sunardi & Ibu Sholikatun
           </p>
 
-          {/* Tombol Instagram Minimalis */}
           <a
             href="https://www.instagram.com/ahmadd_ulum"
             target="_blank"
@@ -105,7 +87,6 @@ export default function BrideAndGroomSection() {
           </a>
         </motion.div>
 
-        {/* 3. PEMISAH AMPERSAND (&) DI TENAH (BERSAMA BGSIDECARD) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -116,7 +97,6 @@ export default function BrideAndGroomSection() {
           &
         </motion.div>
 
-        {/* 4. BAGIAN PENGANTIN WANITA (BRIDE) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -124,7 +104,6 @@ export default function BrideAndGroomSection() {
           viewport={{ once: true }}
           className="flex flex-col items-center w-full z-10 my-4 mb-14"
         >
-          {/* Frame Foto Oval Memanjang */}
           <div className="relative w-48 h-72 sm:w-56 sm:h-80 rounded-[120px] overflow-hidden border-2 border-[#8c734b]/60 shadow-md mb-5">
             <img
               src={Bride}
@@ -133,7 +112,6 @@ export default function BrideAndGroomSection() {
             />
           </div>
 
-          {/* Nama & Detail */}
           <h3 className="text-3xl sm:text-4xl font-serif italic text-[#8c734b] mb-1">
             Nadya
           </h3>
@@ -144,7 +122,6 @@ export default function BrideAndGroomSection() {
             Putri dari Bapak Hady Sofiar & Ibu Herlina
           </p>
 
-          {/* Tombol Instagram Minimalis */}
           <a
             href="https://www.instagram.com/nadyaaaahrlnda"
             target="_blank"

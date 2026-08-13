@@ -1,12 +1,11 @@
 import React from "react";
 import Pegantin from "../../assets/asset-brown/pengantin/3.jpg";
-import BungaKiri from "../../assets/asset-brown/bunga.png"; // bunga sisi kiri
-import BungaKanan from "../../assets/asset-brown/bunga.png"; // bunga sisi kanan
+import BungaKiri from "../../assets/asset-brown/bunga.png";
+import BungaKanan from "../../assets/asset-brown/bunga.png";
 
 export default function BeforeLastSection() {
   return (
     <section className="relative flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-[#5F3C28] to-[#f8f0e7] overflow-hidden">
-      {/* Foto dalam lingkaran */}
       <div className="relative mt-10 w-56 h-56 md:w-64 md:h-64 rounded-full overflow-hidden shadow-2xl border-[6px] border-[#f8f0e7] bg-white z-10">
         <img
           src={Pegantin}
@@ -14,7 +13,6 @@ export default function BeforeLastSection() {
           className="w-full h-full object-cover"
         />
 
-        {/* Bunga kiri dan kanan */}
         <img
           src={BungaKiri}
           alt="Bunga kiri"
@@ -27,7 +25,6 @@ export default function BeforeLastSection() {
         />
       </div>
 
-      {/* Teks ucapan */}
       <div className="mt-10 text-center px-6 max-w-lg z-30">
         <p className="text-gray-700 leading-relaxed text-[15px] md:text-base">
           Merupakan suatu kehormatan dan kebahagiaan bagi kami, apabila
@@ -44,7 +41,6 @@ export default function BeforeLastSection() {
         </h2>
       </div>
 
-      {/* Ornamen bawah */}
       <div className="absolute bottom-0 left-0 right-0 flex justify-center">
         <img
           src={BungaKiri}

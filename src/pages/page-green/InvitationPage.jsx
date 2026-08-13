@@ -10,6 +10,7 @@ import Countingday from "../../components/theme_green/CountingDaySection";
 import GallerySection from "../../components/theme_green/GalerySection";
 import GiftSection from "../../components/theme_green/GiftSection";
 import BestWishetSection from "../../components/theme_green/BestWishetSection";
+import LoveStory from "../../components/theme_green/LoveStory";
 
 import LastSetion from "../../components/theme_green/LastSetion";
 
@@ -27,6 +28,7 @@ export default function InvitationPage({ guestName }) {
         <Countingday />
         <AkadSection />
         <GallerySection />
+        <LoveStory />
         <GiftSection />
         <BestWishetSection />
         <LocationSection />

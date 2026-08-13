@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 import { motion } from "framer-motion";
 
-// IMPORT ASSETS
 import BgGift from "../../assets/asset-green/another/SCYLLA-ASSET-GC-2.jpg";
 import Bgflowerside from "../../assets/asset-green/another/ASSET-GC-KALUNA-14.png";
 
@@ -10,109 +9,54 @@ import axiosClient from "../../api/axiosClient.js";
 
 export default function BestWishetSection() {
   const [name, setName] = useState("");
-  const [attending, setAttending] = useState(true); // default true/hadir
+  const [attending, setAttending] = useState(true);
   const [message, setMessage] = useState("");
   const [rsvpList, setRsvpList] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
 
-  // Fetch data awal dari API
   useEffect(() => {
     fetchRsvp();
   }, []);
 
   const fetchRsvp = async () => {
     try {
-      // Tidak perlu tulis URL lengkap, axiosClient akan otomatis memakai URL dari .env
       const res = await axiosClient.get("/rsvp");
-      setRsvpList(res.data); // Axios otomatis mengubah response menjadi JSON di dalam res.data
+      setRsvpList(res.data);
     } catch (err) {
       console.error("Gagal mengambil data RSVP:", err);
     }
   };
 
-  // Fungsi Kirim Data
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   if (!name || !message) {
-  //     alert("Harap isi semua kolom!");
-  //     return;
-  //   }
-
-  //   setLoading(true);
-  //   try {
-  //     const res = await axiosClient.post("/rsvp", {
-  //       name,
-  //       attending,
-  //       message,
-  //     });
-
-  //     if (!res.ok) throw new Error("Gagal mengirim data");
-
-  //     Swal.fire({
-  //       icon: "success",
-  //       title: "Terima kasih!",
-  //       text: "Ucapan & Doa kamu telah berhasil dikirim.",
-  //       confirmButtonColor: "#9e7632",
-  //     });
-
-  //     // reset input
-  //     setName("");
-  //     setMessage("");
-
-  //     // refresh list
-  //     await fetchRsvp();
-  //   } catch (err) {
-  //     console.error(err);
-  //     const errorMsg =
-  //       err.response?.data?.error || "Terjadi kesalahan saat mengirim data.";
-  //     Swal.fire({
-  //       icon: "error",
-  //       title: "Oops...",
-  //       text: errorMsg,
-  //       confirmButtonColor: "#9e7632",
-  //     });
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validasi sederhana
     if (!name || !message) {
       Swal.fire("Peringatan", "Nama dan pesan wajib diisi!", "warning");
       return;
     }
 
     try {
-      // 1. Kirim data menggunakan Axios (Tidak perlu cek res.ok)
       await axiosClient.post("/rsvp", {
         name,
         attending,
         message,
       });
 
-      // 2. Jika kode sampai di baris ini, berarti 100% SUKSES!
       Swal.fire("Berhasil!", "Pesan dan doa Anda telah terkirim.", "success");
 
-      // 3. Reset form kembali kosong
       setName("");
       setMessage("");
       setAttending(true);
 
-      // 4. Ambil ulang daftar RSVP agar langsung muncul di layar tanpa refresh!
       fetchRsvp();
     } catch (err) {
-      // Axios akan otomatis masuk ke sini jika server mati atau merespons error (misal 500)
       console.error("Gagal mengirim RSVP:", err);
       Swal.fire("Error", "Terjadi kesalahan saat mengirim data.", "error");
     }
   };
 
-  // Pagination logic
   const totalPages = Math.ceil(rsvpList.length / itemsPerPage);
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -127,7 +71,6 @@ export default function BestWishetSection() {
       className="relative min-h-screen w-full flex flex-col items-center justify-start py-14 px-4 bg-cover bg-center overflow-hidden"
       style={{ backgroundImage: `url(${BgGift})` }}
     >
-      {/* 1. DEKORASI BINGKAI BUNGA SATU GAMBAR UTUH TRANSPARAN (FULLSCREEN) */}
       <div className="absolute inset-0 w-full h-full pointer-events-none z-10">
         <img
           src={Bgflowerside}
@@ -136,9 +79,7 @@ export default function BestWishetSection() {
         />
       </div>
 
-      {/* 2. CONTAINER UTAMA (FORM & UCAPAN) */}
       <div className="relative z-20 w-full max-w-sm sm:max-w-md flex flex-col items-center text-left">
-        {/* HEADER JUDUL */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -154,9 +95,7 @@ export default function BestWishetSection() {
           </h2>
         </motion.div>
 
-        {/* FORM ISIAN */}
         <form onSubmit={handleSubmit} className="w-full space-y-4">
-          {/* INPUT NAMA */}
           <div>
             <label className="block text-xs sm:text-sm font-serif text-[#000000] mb-1.5 font-medium">
               Tuliskan nama anda:
@@ -170,7 +109,6 @@ export default function BestWishetSection() {
             />
           </div>
 
-          {/* INPUT UCAPAN & DOA */}
           <div>
             <label className="block text-xs sm:text-sm font-serif text-[#000000] mb-1.5 font-medium">
               Berikan ucapan & doa:
@@ -189,7 +127,6 @@ export default function BestWishetSection() {
             </div>
           </div>
 
-          {/* KONFIRMASI KEHADIRAN */}
           <div className="flex items-center gap-4 text-xs font-serif text-[#655337] pt-1">
             <span className="font-medium">Kehadiran:</span>
             <label className="flex items-center gap-1.5 cursor-pointer">
@@ -214,7 +151,6 @@ export default function BestWishetSection() {
             </label>
           </div>
 
-          {/* TOMBOL SEND */}
           <button
             type="submit"
             disabled={loading}
@@ -224,7 +160,6 @@ export default function BestWishetSection() {
           </button>
         </form>
 
-        {/* 3. LIST UCAPAN TAMU (CARDS TRANSPARAN) */}
         <div className="w-full mt-8 space-y-3">
           {currentItems.length === 0 ? (
             <p className="text-center text-[#785b28] font-serif text-xs italic">
@@ -268,7 +203,6 @@ export default function BestWishetSection() {
           )}
         </div>
 
-        {/* PAGINATION */}
         {totalPages > 1 && (
           <div className="flex justify-center mt-6 space-x-2">
             {Array.from({ length: totalPages }, (_, i) => (

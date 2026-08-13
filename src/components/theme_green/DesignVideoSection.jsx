@@ -9,7 +9,6 @@ export default function DesignVideoSection() {
         autoPlay
         muted={false}
         playsInline
-        // lanjut ke InvitationPage
       />
     </div>
   );

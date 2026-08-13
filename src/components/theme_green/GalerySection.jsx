@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
-// IMPORT FOTO PENGANTIN
 import Photo1 from "../../assets/asset-green/pengantin/1.jpeg";
 import Photo2 from "../../assets/asset-green/pengantin/2.jpeg";
 import Photo3 from "../../assets/asset-green/pengantin/3.jpeg";
@@ -44,23 +43,19 @@ export default function GallerySection() {
 
   const [currentIndex, setCurrentIndex] = useState(null);
 
-  // Buka modal sesuai index foto
   const openModal = (index) => {
     setCurrentIndex(index);
   };
 
-  // Tutup modal
   const closeModal = () => {
     setCurrentIndex(null);
   };
 
-  // Navigasi Foto Sebelumnya
   const prevPhoto = (e) => {
     e.stopPropagation();
     setCurrentIndex((prev) => (prev === 0 ? allPhotos.length - 1 : prev - 1));
   };
 
-  // Navigasi Foto Selanjutnya
   const nextPhoto = (e) => {
     e.stopPropagation();
     setCurrentIndex((prev) => (prev === allPhotos.length - 1 ? 0 : prev + 1));
@@ -71,11 +66,10 @@ export default function GallerySection() {
       className="min-h-screen w-full py-16 px-4 sm:px-6 relative overflow-hidden bg-top"
       style={{
         backgroundImage: `url(${BgGallery})`,
-        backgroundSize: "100% auto", // Mempertahankan proporsi lebar gambar asli
-        backgroundRepeat: "repeat-y", // Melooping gambar ke arah bawah selama konten masih ada
+        backgroundSize: "100% auto",
+        backgroundRepeat: "repeat-y",
       }}
     >
-      {/* 1. HEADER SEKSI GALERI */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -91,9 +85,7 @@ export default function GallerySection() {
         </p>
       </motion.div>
 
-      {/* CONTAINER UTAMA GALERI */}
       <div className="max-w-4xl mx-auto">
-        {/* 2. HIGHLIGHT PHOTO (FOTO UTAMA ATAS) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -112,7 +104,6 @@ export default function GallerySection() {
           </div>
         </motion.div>
 
-        {/* 3. GRID GALLERY FOTO-FOTO LAINNYA */}
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
           {allPhotos.slice(1).map((photo, idx) => {
             const actualIndex = idx + 1;
@@ -140,7 +131,6 @@ export default function GallerySection() {
         </div>
       </div>
 
-      {/* 4. MODAL FULLSCREEN LIGHTBOX */}
       <AnimatePresence>
         {currentIndex !== null && (
           <motion.div
@@ -150,7 +140,6 @@ export default function GallerySection() {
             className="fixed inset-0 bg-black/85 backdrop-blur-md flex items-center justify-center z-50 p-4"
             onClick={closeModal}
           >
-            {/* Tombol Close */}
             <button
               onClick={closeModal}
               className="absolute top-5 right-5 text-white/80 hover:text-white bg-black/40 hover:bg-black/70 p-2.5 rounded-full transition z-50"
@@ -158,7 +147,6 @@ export default function GallerySection() {
               <X size={24} />
             </button>
 
-            {/* Tombol Prev */}
             <button
               onClick={prevPhoto}
               className="absolute left-3 sm:left-6 text-white/80 hover:text-white bg-black/40 hover:bg-black/70 p-3 rounded-full transition z-50"
@@ -166,14 +154,13 @@ export default function GallerySection() {
               <ChevronLeft size={28} />
             </button>
 
-            {/* Container Foto Modal */}
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ duration: 0.3 }}
               className="relative max-w-3xl max-h-[85vh] flex items-center justify-center overflow-hidden rounded-2xl border border-white/20 shadow-2xl"
-              onClick={(e) => e.stopPropagation()} // Supaya klik foto tidak menutup modal
+              onClick={(e) => e.stopPropagation()}
             >
               <img
                 src={allPhotos[currentIndex]}
@@ -182,7 +169,6 @@ export default function GallerySection() {
               />
             </motion.div>
 
-            {/* Tombol Next */}
             <button
               onClick={nextPhoto}
               className="absolute right-3 sm:right-6 text-white/80 hover:text-white bg-black/40 hover:bg-black/70 p-3 rounded-full transition z-50"

@@ -1,7 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-// SESUAIKAN PATH IMPORT GAMBAR DENGAN PROYEKMU
 import bgtext from "../../assets/asset-green/another/ASSET-GC-KALUNA-10-1-e1753796423225.png";
 import fotoPengantin from "../../assets/asset-green/pengantin/hiro.jpeg";
 import bgOuter from "../../assets/asset-green/another/SCYLLA-ASSET-GC-2.jpg";
@@ -15,9 +14,7 @@ export default function VerseSection() {
         backgroundImage: `url(${bgOuter})`,
       }}
     >
-      {/* Container Utama */}
       <div className="relative w-full max-w-md flex flex-col items-center">
-        {/* 1. KARTU FOTO PENGANTIN (z-20 AGAR BERADA DI DEPAN) */}
         <motion.div
           className="relative w-[95%] aspect-[3/4] rounded-[32px] overflow-hidden shadow-xl z-20"
           initial={{ opacity: 0, y: 30 }}
@@ -32,11 +29,10 @@ export default function VerseSection() {
           />
         </motion.div>
 
-        {/* 2. AREA TEKS KUTIPAN DENGAN BACKGROUND BGTEXT */}
         <motion.div
           className="relative w-[90%] -mt-12 pt-16 pb-36 px-6 bg-cover bg-center text-center shadow-sm z-10 rounded-b-2xl"
           style={{
-            backgroundImage: `url(${bgtext})`, // Ditambahkan ke atribut style
+            backgroundImage: `url(${bgtext})`,
           }}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -57,7 +53,6 @@ export default function VerseSection() {
         </motion.div>
       </div>
 
-      {/* 3. ORNAMEN BUNGA DI BAGIAN BAWAH */}
       <div className="absolute -bottom-9 left-0 right-0 w-full pointer-events-none z-30 translate-y-4">
         <img
           src={bgBottomFloral}

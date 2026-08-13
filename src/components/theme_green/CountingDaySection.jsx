@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Calendar } from "lucide-react";
 import { motion } from "framer-motion";
 
-// IMPORT ASSET
 import BgCountingDay from "../../assets/asset-green/another/SCYLLA-ASSET-GC-2.jpg";
 import bgbuttomcountingday from "../../assets/asset-green/another/SCYLLA-ASSET-GC-9.png";
 
@@ -15,7 +14,6 @@ export default function CountingDaySection() {
   });
 
   useEffect(() => {
-    // Tanggal target acara kamu
     const targetDate = new Date("2026-08-22T09:00:00").getTime();
 
     const timer = setInterval(() => {
@@ -80,9 +78,8 @@ END:VCALENDAR`;
       className="relative flex flex-col items-center justify-end min-h-screen w-full overflow-hidden bg-cover bg-center pb-6 px-4"
       style={{
         backgroundImage: `url(${BgCountingDay})`,
-      }} /* 1. BACKGROUND UTAMA */
+      }}
     >
-      {/* 2. CARD WRAPPER */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -90,16 +87,13 @@ END:VCALENDAR`;
         viewport={{ once: true }}
         className="relative w-full max-w-sm flex flex-col items-center justify-center text-center z-10"
       >
-        {/* GAMBAR BACKGROUND BGBUTTOMCOUNTINGDAY (UTUH TANPA TERPOTONG) */}
         <img
           src={bgbuttomcountingday}
           alt="Frame Background Text"
           className="w-full h-auto object-contain pointer-events-none drop-shadow-md"
         />
 
-        {/* 3. KONTEN TEKS & TIMER (DILETTAKKAN DI ATAS GAMBAR DENGAN ABSOLUTE) */}
         <div className="absolute inset-0 flex flex-col items-center justify-center px-6 pt-10 pb-6 z-10">
-          {/* JUDUL SAVE THE DATE */}
           <div className="mb-2 sm:mb-4">
             <h2 className="text-2xl sm:text-3xl font-serif tracking-[0.15em] text-[#b48a60] font-normal uppercase leading-tight">
               SAVE THE
@@ -121,9 +115,7 @@ END:VCALENDAR`;
             </p>
           </div>
 
-          {/* TIMER BULATAN KAPSUL OVAL */}
           <div className="flex justify-center items-center gap-1.5 sm:gap-2.5 w-full my-2 sm:my-3">
-            {/* Hari */}
             <div className="w-13 h-16 sm:w-16 sm:h-20 bg-white/70 backdrop-blur-md rounded-full border border-white/80 flex flex-col items-center justify-center shadow-sm">
               <span className="text-sm sm:text-lg font-serif font-medium text-[#655337]">
                 {timeLeft.days}
@@ -133,7 +125,6 @@ END:VCALENDAR`;
               </span>
             </div>
 
-            {/* Jam */}
             <div className="w-13 h-16 sm:w-16 sm:h-20 bg-white/70 backdrop-blur-md rounded-full border border-white/80 flex flex-col items-center justify-center shadow-sm">
               <span className="text-sm sm:text-lg font-serif font-medium text-[#655337]">
                 {timeLeft.hours}
@@ -143,7 +134,6 @@ END:VCALENDAR`;
               </span>
             </div>
 
-            {/* Menit */}
             <div className="w-13 h-16 sm:w-16 sm:h-20 bg-white/70 backdrop-blur-md rounded-full border border-white/80 flex flex-col items-center justify-center shadow-sm">
               <span className="text-sm sm:text-lg font-serif font-medium text-[#655337]">
                 {timeLeft.minutes}
@@ -153,7 +143,6 @@ END:VCALENDAR`;
               </span>
             </div>
 
-            {/* Detik */}
             <div className="w-13 h-16 sm:w-16 sm:h-20 bg-white/70 backdrop-blur-md rounded-full border border-white/80 flex flex-col items-center justify-center shadow-sm">
               <span className="text-sm sm:text-lg font-serif font-medium text-[#655337]">
                 {timeLeft.seconds}
@@ -164,7 +153,6 @@ END:VCALENDAR`;
             </div>
           </div>
 
-          {/* TOMBOL SIMPAN DI KALENDER */}
           <button
             className="mt-1 bg-[#655337] text-white text-[10px] sm:text-xs font-serif tracking-widest px-5 py-2 rounded-full flex items-center gap-1.5 hover:bg-[#8c734b] transition shadow-md active:scale-95"
             onClick={handleDownloadICS}

@@ -1,7 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-// IMPORT ASSET SESUAI STRUKTUR PROYEKMU
 import BgLastSection from "../../assets/asset-green/another/SCYLLA-ASSET-GC-2.jpg";
 import bgbuttomSection from "../../assets/asset-green/another/ASSET-GC-KALUNA-6.png";
 import Pengantin from "../../assets/asset-green/pengantin/15.jpeg";
@@ -12,9 +11,7 @@ export default function LastSection() {
       className="relative min-h-screen w-full flex flex-col items-center justify-between py-12 px-4 bg-cover bg-center overflow-hidden"
       style={{ backgroundImage: `url(${BgLastSection})` }}
     >
-      {/* CONTAINER UTAMA KONTEN (PENGANTIN & TEKS) */}
       <div className="relative z-20 flex flex-col items-center text-center max-w-sm sm:max-w-md w-full my-auto">
-        {/* 1. FOTO PENGANTIN OVAL KAPSUL */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -29,7 +26,6 @@ export default function LastSection() {
           />
         </motion.div>
 
-        {/* 2. TEKS UCAPAN PENUTUP */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -47,7 +43,6 @@ export default function LastSection() {
             See you on our big day!
           </p>
 
-          {/* NAMA MEMPELAI BERGAYA CAPITAL DUA BARIS */}
           <h2 className="text-2xl sm:text-3xl font-serif tracking-[0.2em] text-[#a27b38] font-normal uppercase leading-tight">
             NADYA
           </h2>
@@ -57,7 +52,6 @@ export default function LastSection() {
         </motion.div>
       </div>
 
-      {/* 3. BGBUTTOMSECTION (DITAMPILKAN DI LAPISAN DEPAN ATAS BACKGROUND) */}
       <div className="absolute bottom-0 left-0 w-full pointer-events-none z-10">
         <img
           src={bgbuttomSection}
