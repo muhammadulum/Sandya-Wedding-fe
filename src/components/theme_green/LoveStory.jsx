@@ -26,7 +26,7 @@ export default function LoveStory() {
           Mengikat Janji
         </>
       ),
-      description: `Waktu dan kedewasaan akhirnya benar-benar menyatukan kembali langkah kami. Setelah lulus kuliah dan mulai bekerja di Jakarta, sebuah sapaan sederhana menjadi awal dari komunikasi kami yang sempat terputus. Hingga tibalah hari itu, perjumpaan pertama kami setelah sekian lama di riuhnya bandara—sebuah momen canggung namun hangat yang tanpa disadari menjadi titik balik segalanya. Sejak detik itu, jarak tak lagi punya ruang. Kami menghabiskan dua tahun masa pacaran untuk saling bertukar cerita, termasuk menertawakan momen tak kasat mata di pantai Jogja dulu, belajar memahami, dan saling mendewasakan. Kini, dengan keyakinan yang utuh, kami memutuskan untuk berhenti mencari dan mulai membangun rumah kami sendiri dalam sebuah ikatan PERNIKAHAN.`,
+      description: `Waktu dan kedewasaan akhirnya benar-benar menyatukan kembali langkah kami. Setelah lulus kuliah dan mulai bekerja di Jakarta, sebuah sapaan sederhana menjadi awal dari komunikasi kami yang sempat terputus. Hingga tibalah hari itu, perjumpaan pertama kami setelah sekian lama di riuhnya bandara—sebuah momen canggung namun hangat yang tanpa disadari menjadi titik balik segalanya. Sejak detik itu, jarak tak lagi punya ruang. Kami menghabiskan hampir tiga tahun masa pacaran untuk saling bertukar cerita, termasuk menertawakan momen tak kasat mata di pantai Jogja dulu, belajar memahami, dan saling mendewasakan. Kini, dengan keyakinan yang utuh, kami memutuskan untuk berhenti mencari dan mulai membangun rumah kami sendiri dalam sebuah ikatan PERNIKAHAN.`,
     },
   ];
 
