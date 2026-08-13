@@ -24,22 +24,16 @@ const LoginPage = () => {
     try {
       // backend expects email in original project; try username first, fall back to email
       const payload = { username, password };
-      const res = await axiosClient.post(
-        "http://localhost:5000/api/auth/login",
-        payload
-      );
+      const res = await axiosClient.post("/auth/login", payload);
       login(res.data.user, res.data.token);
       navigate("/dashboard");
     } catch (err) {
       // try falling back to email field to be tolerant with existing backend
       try {
-        const res2 = await axiosClient.post(
-          "http://localhost:5000/api/auth/login",
-          {
-            email: username,
-            password,
-          }
-        );
+        const res2 = await axiosClient.post("/auth/login", {
+          email: username,
+          password,
+        });
         login(res2.data.user, res2.data.token);
         navigate("/dashboard");
       } catch (err2) {

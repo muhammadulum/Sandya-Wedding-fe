@@ -33,48 +33,82 @@ export default function BestWishetSection() {
   };
 
   // Fungsi Kirim Data
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   if (!name || !message) {
+  //     alert("Harap isi semua kolom!");
+  //     return;
+  //   }
+
+  //   setLoading(true);
+  //   try {
+  //     const res = await axiosClient.post("/rsvp", {
+  //       name,
+  //       attending,
+  //       message,
+  //     });
+
+  //     if (!res.ok) throw new Error("Gagal mengirim data");
+
+  //     Swal.fire({
+  //       icon: "success",
+  //       title: "Terima kasih!",
+  //       text: "Ucapan & Doa kamu telah berhasil dikirim.",
+  //       confirmButtonColor: "#9e7632",
+  //     });
+
+  //     // reset input
+  //     setName("");
+  //     setMessage("");
+
+  //     // refresh list
+  //     await fetchRsvp();
+  //   } catch (err) {
+  //     console.error(err);
+  //     const errorMsg =
+  //       err.response?.data?.error || "Terjadi kesalahan saat mengirim data.";
+  //     Swal.fire({
+  //       icon: "error",
+  //       title: "Oops...",
+  //       text: errorMsg,
+  //       confirmButtonColor: "#9e7632",
+  //     });
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Validasi sederhana
     if (!name || !message) {
-      alert("Harap isi semua kolom!");
+      Swal.fire("Peringatan", "Nama dan pesan wajib diisi!", "warning");
       return;
     }
 
-    setLoading(true);
     try {
-      const res = await axiosClient.post("/rsvp", {
+      // 1. Kirim data menggunakan Axios (Tidak perlu cek res.ok)
+      await axiosClient.post("/rsvp", {
         name,
         attending,
         message,
       });
 
-      if (!res.ok) throw new Error("Gagal mengirim data");
+      // 2. Jika kode sampai di baris ini, berarti 100% SUKSES!
+      Swal.fire("Berhasil!", "Pesan dan doa Anda telah terkirim.", "success");
 
-      Swal.fire({
-        icon: "success",
-        title: "Terima kasih!",
-        text: "Ucapan & Doa kamu telah berhasil dikirim.",
-        confirmButtonColor: "#9e7632",
-      });
-
-      // reset input
+      // 3. Reset form kembali kosong
       setName("");
       setMessage("");
+      setAttending(true);
 
-      // refresh list
-      await fetchRsvp();
+      // 4. Ambil ulang daftar RSVP agar langsung muncul di layar tanpa refresh!
+      fetchRsvp();
     } catch (err) {
-      console.error(err);
-      const errorMsg =
-        err.response?.data?.error || "Terjadi kesalahan saat mengirim data.";
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: errorMsg,
-        confirmButtonColor: "#9e7632",
-      });
-    } finally {
-      setLoading(false);
+      // Axios akan otomatis masuk ke sini jika server mati atau merespons error (misal 500)
+      console.error("Gagal mengirim RSVP:", err);
+      Swal.fire("Error", "Terjadi kesalahan saat mengirim data.", "error");
     }
   };
 
