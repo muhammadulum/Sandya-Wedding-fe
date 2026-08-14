@@ -37,10 +37,10 @@ export default function GallerySection() {
     Photo11,
     Photo12,
     Photo14,
-    Photo9,
-    Photo17,
     Photo18,
     Photo19,
+    Photo9,
+    Photo17,
   ];
 
   const [currentIndex, setCurrentIndex] = useState(null);
