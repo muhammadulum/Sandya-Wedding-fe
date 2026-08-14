@@ -22,12 +22,14 @@ import Photo19 from "../../assets/asset-green/pengantin/19.jpeg";
 import BgGallery from "../../assets/asset-green/another/SCYLLA-ASSET-GC-2.jpg";
 
 export default function GallerySection() {
+  const youtubeVideoId = "STJV_fICcjw";
+
   const allPhotos = [
     Photo16,
     Photo1,
     Photo2,
     Photo3,
-    Photo4,
+    // Photo4,
     Photo5,
     Photo15,
     Photo6,
@@ -129,6 +131,22 @@ export default function GallerySection() {
             );
           })}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          className="w-full overflow-hidden mt-5 rounded-3xl shadow-lg border-2 border-[#c4a97d]/50 bg-black aspect-video pt-4"
+        >
+          <iframe
+            className="w-full h-full rounded-3xl"
+            src={`https://www.youtube.com/embed/${youtubeVideoId}`}
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          ></iframe>
+        </motion.div>
       </div>
 
       <AnimatePresence>

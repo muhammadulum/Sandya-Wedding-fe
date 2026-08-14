@@ -36,7 +36,7 @@ export default function BrideAndGroomSection() {
           className="absolute bottom-0 left-0 w-full h-auto pointer-events-none z-0 object-contain"
         />
 
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
@@ -46,9 +46,45 @@ export default function BrideAndGroomSection() {
           <h2 className="text-3xl sm:text-4xl font-serif italic text-[#8c734b] mb-2">
             With Love
           </h2>
-          <p className="text-xs sm:text-sm font-serif text-[#655337] max-w-xs mx-auto leading-relaxed">
-            Dengan rahmat Tuhan Yang Maha Esa dan berkah Sang Triratna kami
-            mengundang Bapak/Ibu/Saudara/i untuk menghadiri pernikahan kami:
+          <p className="text-xs sm:text-sm font-serif text-[#655337] leading-relaxed text-center">
+            Assalamu'alaikum
+            <br />
+            Warahmatullahi Wabarakatuh
+            <br />
+            <br />
+            Dengan memohon Rahmat dan Ridho
+            <br />
+            Allah Subhanahu Wa Ta'ala kami
+            <br />
+            bermaksud untuk mengundang
+            <br />
+            Bapak/Ibu/Saudara/i untuk menghadiri
+            <br />
+            acara pernikahan kami:
+          </p>
+        </motion.div> */}
+
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          className="z-10 mt-10 mb-6 text-center"
+        >
+          <h2 className="text-3xl sm:text-4xl font-serif italic text-[#8c734b] mb-2">
+            With Love
+          </h2>
+
+          <p className="text-xs sm:text-sm font-serif text-[#655337] leading-relaxed text-center">
+            Dengan memohon Rahmat dan Ridho Allah Subhanahu
+            <br />
+            Wa Ta’ala kami
+            <br />
+            bermaksud untuk mengundang Bapak/Ibu/Saudara/i
+            <br />
+            untuk menghadiri
+            <br />
+            acara pernikahan kami:
           </p>
         </motion.div>
 
