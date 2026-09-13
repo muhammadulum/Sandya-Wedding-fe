@@ -7,6 +7,7 @@ import RSVPPage from "./pages/pege-brown/RSVPPage";
 import SettingsPage from "./pages/SettingsPage";
 import AdminLayout from "./pages/AdminLayout";
 import Envelope from "./components/theme_brown/Envelope";
+import LandingPage from "./pages/LandingPage";
 
 import EnvelopeGreen from "./components/theme_green/Envelope";
 
@@ -20,7 +21,8 @@ function App() {
     <AuthProvider>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<LoginPage />} />
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/login" element={<LoginPage />} />
           <Route
             path="/dashboard"
             element={
